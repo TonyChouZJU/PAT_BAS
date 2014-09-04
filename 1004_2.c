@@ -15,22 +15,20 @@
 #include<stdio.h>
 
 #define LEN sizeof(struct grade_list)
-//typedef struct grade_list *List;
-//typedef PtrToNode List;
-//typedef PtrToNode Position;
+typedef struct grade_list *List;
 
-typedef struct grade_list{
+struct grade_list{
 		char name[11];
 		char stu_no[11];
 		int grade;
-		struct grade_list *Next;
-}List;
+		List Next;
+};
 
-void print_max_min(List *L){
+void print_max_min(List L){
 	int min = 101;
 	int max = -1;
-	List *min_P,*max_P;
-	while(L!= NULL){
+	List min_P,max_P;
+	while(L != NULL){
 		if(L->grade <= min){
 			min = L->grade;
 			min_P = L;
@@ -48,11 +46,10 @@ int main(){
 	int n;
 	scanf("%d",&n);
 	getchar();
-	List *Head=NULL;
-	List *L1, *L2;
-//	L1 = L2 = (List*)malloc(LEN);
+	List Head=NULL;
+	List L1, L2;
 	for(int i = 0; i != n; ++i){
-		L1 = (List*)malloc(LEN);
+		L1 = (List)malloc(LEN);
 		if(Head == NULL)
 			Head = L1;
 		else

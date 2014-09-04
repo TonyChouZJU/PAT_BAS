@@ -47,12 +47,13 @@ int main(){
 	count = 0;
 	i = 2;
 	scanf("%d%d",&M,&N);
-	int *prime = new int[N];	
-	while(count!=(N-M+1)){
-		if(Isprime(i))
+	int prime[N+1];	
+	while(count!=N){
+		if(Isprime(i)){
 			count++;
-		if(count >= M)
-			prime[count]=i;
+			if(count >= M)
+				prime[count]=i;
+		}
 		++i;
 	}
 	print(prime,M,N);
