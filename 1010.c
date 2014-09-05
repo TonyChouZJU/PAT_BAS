@@ -4,6 +4,7 @@
 int main(){
 	int a[1000],b[1000];
 	int i=0;
+	int j;
 	char c;
 	do{
 		scanf("%d%d",a+i,b+i);
@@ -11,10 +12,10 @@ int main(){
 	}while((c=getchar())!='\n');
 //	printf("%d",i);
 	if(*b==0){
-		printf("0");
+		printf("0 0");
 		return 0;
 	}
-	for(int j = 0; j != i; ++j){
+	for(j = 0; j != i; ++j){
 		if(*(b+j)){
 			if(j)
 			printf(" ");
